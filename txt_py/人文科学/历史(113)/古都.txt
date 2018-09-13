@@ -1,0 +1,6 @@
+beijing
+changan
+chengdu
+luoyang
+nanjing
+xian
