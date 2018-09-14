@@ -121,6 +121,11 @@ def main():
     save_dir = "scel/"
     dirnames = ['城市信息', '自然科学', '社会科学', '工程应用', '农林渔畜', '医学医药',
                 '电子游戏', '艺术设计', '生活百科', '运动休闲', '人文科学', '娱乐休闲']
+    for dirname in dirnames:
+        try:
+            os.mkdir(save_dir + dirname)
+        except Exception as e:
+            print(e)
     # 获取大类链接
     mysougou = SougouSpider(url)
     mysougou.get_html()
