@@ -4,8 +4,9 @@
 # @Version : 1.0
 # @Time    : 2018/8/17
 # @Author  : 圈圈烃
-# @File    : scel2txt.py
-# @Description: 将搜狗的词库.scel文件转化为.txt文件
+# @File    : Scel2Txt.py
+# @Description:
+# 将搜狗的词库.scel文件转化为.txt文件
 # 本人在之前作者的基础上进行了部分修改
 # 添加了单个文件转化函数single_file()
 # 添加了多个文件转化函数batch_file()
@@ -149,7 +150,7 @@ def scel2txt(file_name):
     with open(file_name, 'rb') as f:
         data = f.read()
 
-    print("词库名：", byte2str(data[0x130:0x338])) # .encode('GB18030')
+    print("词库名：", byte2str(data[0x130:0x338]))  # .encode('GB18030')
     print("词库类型：", byte2str(data[0x338:0x540]))
     print("描述信息：", byte2str(data[0x540:0xd40]))
     print("词库示例：", byte2str(data[0xd40:startPy]))
@@ -161,8 +162,8 @@ def scel2txt(file_name):
 
 
 def single_file():
-    input_path = 'scel\自然科学\天文学(21)\天文词汇大全【官方推荐】.scel'    # 输入scel所在文件夹路径
-    output_path = 'txt\自然科学\天文学(21)\天文词汇大全【官方推荐】_py.txt'     # 输出txt所在文件夹路径
+    input_path = 'scel\自然科学\天文学(21)\天文词汇大全【官方推荐】.scel'  # 输入scel所在文件夹路径
+    output_path = 'txt\自然科学\天文学(21)\天文词汇大全【官方推荐】_py.txt'  # 输出txt所在文件夹路径
     # 转换scel为txt
     GTable = scel2txt(input_path)
     # 保存结果
@@ -170,13 +171,15 @@ def single_file():
         f.writelines([py + '\n' for count, py, word in GTable])
 
 
-def batch_file():
-    # 使用前请先新建以下两个目录
-    input_dir = "scel/"  # 批量输入文件的目录
-    output_dir = "txt"  # 批量输出文件的目录
+def batch_file(input_dir, output_dir):
+    # 创建保存路径
+    try:
+        os.mkdir(output_dir)
+    except Exception as e:
+        print(e)
     # 遍历文件夹下的文件
     for parent, dirnames, filenames in os.walk(input_dir):
-        new_parent = parent.replace("scel", output_dir)
+        new_parent = output_dir + parent.replace(input_dir, "")
         try:
             os.mkdir(new_parent)
         except Exception as e:
@@ -189,7 +192,7 @@ def batch_file():
                 try:
                     GTable = scel2txt(os.path.join(parent, filename))
                     with open(os.path.join(new_parent, filename.replace('.scel', '.txt')), 'w', encoding='utf8') as f:
-                        f.writelines([word + '\n' for count, py, word in GTable])   # 此处可选择输出的是词频、拼音或是文字
+                        f.writelines([word + '\n' for count, py, word in GTable])  # 此处可选择输出的是词频、拼音或是文字
                         print(filename + ">>>>>>txt转换成功")
                 except Exception as e:
                     print(e)
@@ -197,5 +200,9 @@ def batch_file():
 
 if __name__ == '__main__':
     # single_file()   # 单个文件转换
-    batch_file()    # 多个文件转换
 
+    # Scel保存路径
+    SavePath = r"f:\Users\QQT\Documents\zTemp Files\scel1"
+    # TXT保存路径
+    txtSavePath = r"f:\Users\QQT\Documents\zTemp Files\txt1"
+    batch_file(SavePath, txtSavePath)  # 多个文件转换
