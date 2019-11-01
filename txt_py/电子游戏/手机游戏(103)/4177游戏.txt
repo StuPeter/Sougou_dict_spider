@@ -1,6 +1,0 @@
-libao
-shequ
-shouyou
-shouyoumeiti
-youxi
-youxizhongxin
