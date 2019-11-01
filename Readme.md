@@ -15,6 +15,11 @@
 
 所以这个项目诞生了😋!
 
+## 分析
+
+
+[Python 搜狗词库的批量下载分析](https://www.quanquanting.com/blog/article/?id=13465787 "Python 搜狗词库的批量下载分析")
+
 
 ## 快速开始(Quick start)
 
