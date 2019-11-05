@@ -23,7 +23,7 @@
 
 ## 快速开始(Quick start)
 
-#### 环境要求(Requirments):
+#### 环境要求(Requirements):
 
 * Python 3.x (2.x is not supported)
 * requests
