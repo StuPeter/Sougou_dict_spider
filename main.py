@@ -13,8 +13,8 @@ import Scel2Txt
 import os
 
 # 下载类别
-Categories = ['城市信息', '自然科学', '社会科学', '工程应用', '农林渔畜', '医学医药',
-              '电子游戏', '艺术设计', '生活百科', '运动休闲', '人文科学', '娱乐休闲']
+Categories = ['城市信息:167', '自然科学:1', '社会科学:76', '工程应用:96', '农林渔畜:127', '医学医药:132',
+              '电子游戏:436', '艺术设计:154', '生活百科:389', '运动休闲:367', '人文科学:31', '娱乐休闲:403']
 # Scel保存路径
 SavePath = r"f:\Users\QQT\Documents\zTemp Files\scel1"
 
@@ -33,11 +33,13 @@ def main():
         os.mkdir(SavePath)
     except Exception as e:
         print(e)
-    # 获取大类链接
-    resp = SGSpider.GetHtml(startUrl)
-    categoryOneUrls = SGSpider.GetCategoryOne(resp)
+    # 我需要啥
+    myCategoryUrls = []
+    for mc in Categories:
+        myCategoryUrls.append("https://pinyin.sogou.com/dict/cate/index/" + mc.split(":")[-1])
+    print(myCategoryUrls)
     # 大类分类
-    for index, categoryOneUrl in enumerate(categoryOneUrls):
+    for index, categoryOneUrl in enumerate(myCategoryUrls):
         # 创建保存路径
         categoryOnePath = SavePath + "/" + Categories[index]
         try:
