@@ -41,7 +41,7 @@ def main():
     # 大类分类
     for index, categoryOneUrl in enumerate(myCategoryUrls):
         # 创建保存路径
-        categoryOnePath = SavePath + "/" + Categories[index]
+        categoryOnePath = SavePath + "/" + Categories[index].split(":")[-1]
         try:
             os.mkdir(categoryOnePath)
         except Exception as e:
