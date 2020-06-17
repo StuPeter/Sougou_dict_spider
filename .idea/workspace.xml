@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c299f33c-8507-4707-8652-c41f293785ca" name="Default" comment="修复无法选择下载类别的问题">
+    <list default="true" id="c299f33c-8507-4707-8652-c41f293785ca" name="Default" comment="修复保存路径报错的问题">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +181,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536132168525</updated>
-      <workItem from="1592364917691" duration="375000" />
+      <workItem from="1592364917691" duration="2026000" />
     </task>
     <task id="LOCAL-00001" summary="优化自动创建路径">
       <created>1536892214046</created>
@@ -224,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587881913954</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修复保存路径报错的问题">
+      <created>1592365310366</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592365310366</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +245,20 @@
     <MESSAGE value="增加分析" />
     <MESSAGE value="修改Readme" />
     <MESSAGE value="修复无法选择下载类别的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复无法选择下载类别的问题" />
+    <MESSAGE value="修复保存路径报错的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复保存路径报错的问题" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="221" y="256" key="CommitChangelistDialog2" timestamp="1592365309619">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="221" y="256" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1592365309619" />
+    <state x="232" y="436" key="Vcs.Push.Dialog.v2" timestamp="1592365314571">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="232" y="436" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1592365314571" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sougou_dict_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1592374113819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
