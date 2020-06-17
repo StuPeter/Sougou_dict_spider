@@ -92,7 +92,7 @@ def getWordPy(data, GPy_Table):
     ret = ''
     while pos < len(data):
         index = struct.unpack('H', bytes([data[pos], data[pos + 1]]))[0]
-        ret += GPy_Table[index]
+        ret += "'" + GPy_Table[index]
         pos += 2
     return ret
 
@@ -156,19 +156,19 @@ def scel2txt(file_name):
     print("词库示例：", byte2str(data[0xd40:startPy]))
 
     getPyTable(data[startPy:startChinese], GPy_Table)
-    getChinese(data[startChinese:], GPy_Table, GTable)
 
+    getChinese(data[startChinese:], GPy_Table, GTable)
     return GTable
 
 
 def single_file():
-    input_path = 'scel\自然科学\天文学(21)\天文词汇大全【官方推荐】.scel'  # 输入scel所在文件夹路径
-    output_path = 'txt\自然科学\天文学(21)\天文词汇大全【官方推荐】_py.txt'  # 输出txt所在文件夹路径
+    input_path = r'f:\Users\QQT\Documents\Temp\scel1\167\安徽\安徽.scel'  # 输入scel所在文件夹路径
+    output_path = r'f:\Users\QQT\Documents\Temp\txt1\167\安徽\安徽.txt'  # 输出txt所在文件夹路径
     # 转换scel为txt
     GTable = scel2txt(input_path)
     # 保存结果
     with open(output_path, 'w', encoding='utf8') as f:
-        f.writelines([py + '\n' for count, py, word in GTable])
+        f.writelines([py + " " + word + '\n' for count, py, word in GTable])
 
 
 def batch_file(input_dir, output_dir):
@@ -192,17 +192,17 @@ def batch_file(input_dir, output_dir):
                 try:
                     GTable = scel2txt(os.path.join(parent, filename))
                     with open(os.path.join(new_parent, filename.replace('.scel', '.txt')), 'w', encoding='utf8') as f:
-                        f.writelines([word + '\n' for count, py, word in GTable])  # 此处可选择输出的是词频、拼音或是文字
+                        f.writelines([py + " " + word + '\n' for count, py, word in GTable])  # 此处可选择输出的是词频、拼音或是文字
                         print(filename + ">>>>>>txt转换成功")
                 except Exception as e:
                     print(e)
 
 
 if __name__ == '__main__':
-    # single_file()   # 单个文件转换
+    single_file()  # 单个文件转换
 
     # Scel保存路径
-    SavePath = r"f:\Users\QQT\Documents\zTemp Files\scel1"
+    # SavePath = r"f:\Users\QQT\Documents\zTemp Files\scel1"
     # TXT保存路径
-    txtSavePath = r"f:\Users\QQT\Documents\zTemp Files\txt1"
-    batch_file(SavePath, txtSavePath)  # 多个文件转换
+    # txtSavePath = r"f:\Users\QQT\Documents\zTemp Files\txt1"
+    # batch_file(SavePath, txtSavePath)  # 多个文件转换
