@@ -43,11 +43,11 @@
         ├── Scel2Txt.py
         ├── requirements.txt
         └── Readme.md
-    
+
     + main.py为主程序，用于下载搜狗词库；
     + SougouSpider.py为解析和下载的类，供main.py调用；
     + Scel2Txt.py为.scel文件转.txt程序；
-    
+
 3. 要下载搜狗词库文件，需要先打开 main.py
 
         # 下载类别
@@ -71,9 +71,21 @@
 
 5. 当显示“任务结束...”表示下载和转化完毕，最后的词库文件路径为上面设置的 **txtSavePath**
 
+## 合并txt文件
+
+生成的txt文件是分类存放，需要将它合并成一个文件进行词库转换，可以运行Mergetxt.py文件。
+
+```
+# 指定文件夹路径和输出文件路径
+folder_path = 'path/to/file.txt'  # 替换为你的文件夹路径
+output_file = 'path/to/output.txt'  # 替换为你的输出文件路径
+```
+
+* 注意修改输入输出文件路径
+* 当任务结束，会输出`Concatenation completed.`
+
 
 ## 许可(License)
 [MIT license](https://github.com/StuPeter/Sougou_dict_spider/blob/master/LICENSE "MIT license")
     
-
 
