@@ -17,8 +17,14 @@ jobs:
       - run: python main.py # 执行
 
      # 发包
-      - name: Release apk
+      - name: Archive Sogou dictionaries
         uses: actions/upload-artifact@v2
         with:
-          name: bulid
-          path: sougou
+          name: Sogou Dictionaries
+          path: scel1
+
+      - name: Archive TXT files
+        uses: actions/upload-artifact@v2
+        with:
+          name: TXT Files
+          path: txt1
