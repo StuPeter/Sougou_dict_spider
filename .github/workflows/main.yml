@@ -15,6 +15,10 @@ jobs:
       - run: pip install requests
       - run: pip install bs4
       - run: python main.py # 执行
+      - run: python txt.py
+      - run: wget https://github.com/studyzy/imewlconverter/releases/download/v3.1.0/imewlconverter_Linux.tar.gz
+      - run: tar -zxvf imewlconverter_Linux.tar.gz
+      - run: dotnet publish/ImeWlConverterCmd.dll -i:word output.txt -o:gboard gg.txt
       
       - name: Install zip
         run: sudo apt-get install zip
@@ -36,3 +40,9 @@ jobs:
         with:
           name: compressed-files
           path: txt1.zip
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: compressed-files
+          path: gg.txt
