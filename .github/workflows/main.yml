@@ -15,16 +15,24 @@ jobs:
       - run: pip install requests
       - run: pip install bs4
       - run: python main.py # 执行
+      
+      - name: Install zip
+        run: sudo apt-get install zip
 
-     # 发包
-      - name: Archive Sogou dictionaries
+      - name: zip1
+        run: zip -r scel1.zip scel1/
+
+      - name: zip2
+        run: zip -r txt1.zip txt1/
+
+      - name: Archive files
         uses: actions/upload-artifact@v2
         with:
-          name: Sogou Dictionaries
-          path: scel1
+          name: compressed-files
+          path: scel1.zip
 
-      - name: Archive TXT files
+      - name: Archive files
         uses: actions/upload-artifact@v2
         with:
-          name: TXT Files
-          path: txt1
+          name: compressed-files
+          path: txt1.zip
