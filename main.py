@@ -16,10 +16,10 @@ import os
 Categories = ['城市信息:167', '自然科学:1', '社会科学:76', '工程应用:96', '农林渔畜:127', '医学医药:132',
               '电子游戏:436', '艺术设计:154', '生活百科:389', '运动休闲:367', '人文科学:31', '娱乐休闲:403']
 # Scel保存路径
-SavePath = r"scel1"
+SavePath = r"sougou/scel1"
 
 # TXT保存路径
-txtSavePath = r"txt1"
+txtSavePath = r"sougou/txt1"
 
 # 开始链接
 startUrl = "https://pinyin.sogou.com/dict/cate/index/436"
