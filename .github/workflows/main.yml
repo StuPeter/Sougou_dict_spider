@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.11.4'
+      - run: pip install --upgrade pip  
       - run: pip install requirements
       - run: python main.py # 执行
 
