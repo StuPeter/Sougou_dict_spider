@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main #2020年10月后github新建仓库默认分支改为main，注意更改
+      - master #2020年10月后github新建仓库默认分支改为main，注意更改
 jobs:
   run-python-script:
     runs-on: ubuntu-latest
