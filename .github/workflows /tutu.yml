@@ -14,3 +14,10 @@ jobs:
           python-version: '3.11.4'
       - run: pip install requirements
       - run: python main.py # 执行
+
+          # 发包
+     - name: Release apk
+       uses: actions/upload-artifact@v2
+       with:
+         name: bulid
+         path: sougou
