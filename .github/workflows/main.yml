@@ -1,0 +1,48 @@
+name: Schedule Worker
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master #2020年10月后github新建仓库默认分支改为main，注意更改
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.4'
+      - run: pip install requests
+      - run: pip install bs4
+      - run: python main.py # 执行
+      - run: python txt.py
+      - run: wget https://github.com/studyzy/imewlconverter/releases/download/v3.1.0/imewlconverter_Linux.tar.gz
+      - run: tar -zxvf imewlconverter_Linux.tar.gz
+      - run: dotnet publish/ImeWlConverterCmd.dll -i:word output.txt -o:gboard gg.txt
+      
+      - name: Install zip
+        run: sudo apt-get install zip
+
+      - name: zip1
+        run: zip -r scel1.zip scel1/
+
+      - name: zip2
+        run: zip -r txt1.zip txt1/
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: compressed-files
+          path: scel1.zip
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: compressed-files
+          path: txt1.zip
+
+      - name: Archive files
+        uses: actions/upload-artifact@v2
+        with:
+          name: compressed-files
+          path: publish/Gboard词库.zip

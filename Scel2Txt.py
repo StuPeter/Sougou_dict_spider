@@ -168,7 +168,7 @@ def single_file():
     GTable = scel2txt(input_path)
     # 保存结果
     with open(output_path, 'w', encoding='utf8') as f:
-        f.writelines([py + " " + word + '\n' for count, py, word in GTable])
+        f.writelines([word + '\n' for count, py, word in GTable])
 
 
 def batch_file(input_dir, output_dir):
@@ -192,7 +192,7 @@ def batch_file(input_dir, output_dir):
                 try:
                     GTable = scel2txt(os.path.join(parent, filename))
                     with open(os.path.join(new_parent, filename.replace('.scel', '.txt')), 'w', encoding='utf8') as f:
-                        f.writelines([py + " " + word + '\n' for count, py, word in GTable])  # 此处可选择输出的是词频、拼音或是文字
+                        f.writelines([word + '\n' for count, py, word in GTable])
                         print(filename + ">>>>>>txt转换成功")
                 except Exception as e:
                     print(e)
