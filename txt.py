@@ -18,7 +18,7 @@ def merge_txt_files(directory, output_file):
     print("合并完成！")
 
 # 指定目录和输出文件的路径
-directory = 'txt1'  # 替换为你的目录路径
+directory = 'txt1/'  # 替换为你的目录路径
 output_file = 'output.txt'  # 替换为你的输出文件路径
 
 # 调用函数进行合并
